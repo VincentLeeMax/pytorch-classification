@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import MultiStepLR
 
-from models.alexnet import AlexNet
+from alexnet.alexnet import AlexNet
 from data_loader import get_data_loader
 
 def train(data_train, data_val, num_classes, num_epoch, milestones):
@@ -122,5 +122,5 @@ def test(model, data_test):
 if __name__ == '__main__':
     data_dir = '/data/dataset/tiny-imagenet-200'
     data_train, data_val, data_test = get_data_loader(data_dir)
-    model = train(data_train, data_val, 200, 90, [30, 60])
+    model = train(data_train, data_val, 200, 40, [20, 30])
     test(model, data_test)
